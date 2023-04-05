@@ -11,8 +11,8 @@ const Intro = () => {
           className="underline hover:text-blue-600 duration-200 transition-colors"
         >
           MongoDB
-        </a>
-        . I live in Sydney.
+        </a>{" "}
+        in Sydney, Australia.
       </h4>
     </section>
   );

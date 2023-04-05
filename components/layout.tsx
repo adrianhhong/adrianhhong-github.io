@@ -3,6 +3,7 @@ import Alert from "./alert";
 import Footer from "./footer";
 import Meta from "./meta";
 import { WEBSITE_TITLE } from "../lib/constants";
+import Header from "./header";
 
 type Props = {
   preview?: boolean;
@@ -17,9 +18,10 @@ const Layout = ({ preview, children }: Props) => {
         <title>{WEBSITE_TITLE}</title>
       </Head>
       <div className="min-h-screen">
+        <Header />
         <main>{children}</main>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

@@ -25,7 +25,7 @@ const PostPreview = ({
     <Link
       as={`/posts/${slug}`}
       href="/posts/[slug]"
-      className="border-2 rounded-xl border-black hover:bg-blue-300"
+      className="border-2 rounded-xl border-black transition ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-blue-300 hover:duration-150"
     >
       <div className="p-4">
         {/* <div className="mb-5">
@@ -35,8 +35,8 @@ const PostPreview = ({
         <div className="text-lg mb-4">
           <DateFormatter dateString={date} />
         </div>
-        <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
-        <Avatar name={author.name} picture={author.picture} />
+        {/* <p className="text-lg leading-relaxed mb-4">{excerpt}</p> */}
+        {/* <Avatar name={author.name} picture={author.picture} /> */}
       </div>
     </Link>
   );
