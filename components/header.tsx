@@ -10,8 +10,8 @@ const Header = () => {
           <Image
             src="/assets/coot.svg"
             alt="Adrian Hong Logo"
-            width={200}
-            height={200}
+            width={45}
+            height={45}
           />
         </Link>
       </h2>
