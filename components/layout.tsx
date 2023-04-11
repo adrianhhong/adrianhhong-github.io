@@ -1,16 +1,13 @@
 import Head from "next/head";
-import Alert from "./alert";
-import Footer from "./footer";
 import Meta from "./meta";
 import { WEBSITE_TITLE } from "../lib/constants";
 import Header from "./header";
 
 type Props = {
-  preview?: boolean;
   children: React.ReactNode;
 };
 
-const Layout = ({ preview, children }: Props) => {
+const Layout = ({ children }: Props) => {
   return (
     <>
       <Meta />
@@ -21,7 +18,6 @@ const Layout = ({ preview, children }: Props) => {
         <Header />
         <main>{children}</main>
       </div>
-      {/* <Footer /> */}
     </>
   );
 };
