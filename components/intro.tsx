@@ -5,14 +5,15 @@ const Intro = () => {
         Adrian Hong.
       </h1>
       <h4 className="text-center md:text-left text-lg mt-5 md:pl-8">
-        I am a front-end engineer. I work at{" "}
+        I am a front-end engineer.
+        <br />I work at{" "}
         <a
           href="https://www.mongodb.com/"
           className="underline hover:text-blue-600 duration-200 transition-colors"
         >
           MongoDB
         </a>{" "}
-        in Sydney, Australia.
+        in Sydney.
       </h4>
     </section>
   );

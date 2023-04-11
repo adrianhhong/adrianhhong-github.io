@@ -1,6 +1,6 @@
 ---
-title: "React Re-renders and the Mystery of the Disappearing Popups"
-excerpt: "Read on buddy."
+title: "React Re-renders and the Mystery of the Disappearing Pop-ups"
+excerpt: "Some important React lessons."
 coverImage: "/assets/blog/preview/cover.jpg"
 date: "2022-12-04T00:00:00.000Z"
 author:
@@ -10,25 +10,22 @@ ogImage:
   url: "/assets/blog/preview/cover.jpg"
 ---
 
-# Hello & World
+> TLDR
+>
+> 1. Don't create components in the render function
+> 2. All components that use Context will re-render when the Context Provider changes
 
-> A block quote.
+Today I present React Re-renders and the Mystery of the Disappearing Pop-ups. Time to channel my inner J.K. Rowling 😤
 
-- Some _emphasis_, **importance**, and `code`.
-
-> > > TLDR: React context rerenders,
-
-Here's the story of some important lessons I learnt avo
-
-I was creating a list where items can be deleted. When deleted, we are notified of that deletion through an informative toast. This toast was no ordinary piece of bread, rather one that was quite burnt! Strangely, when the toast closed, it was also removing any delete confirmation dialogs that were open. This was a head scratcher, how does a toast change the state of an entirely different component?
+I was creating a list where items can be deleted. When deleted, we are notified of that deletion through an informative toast. Strangely, when the toast closed, it was also removing any delete confirmation dialogs that were open. This was a head scratcher, how does a toast change the state of an entirely different component?
 
 Let’s look at a dumbed down version of the feature I cooked up earlier.
 
-## Lorem Ipsum
+## ToastProvider
 
 Let’s delve deeper into the `ToastProvider`. `ToastProvider` holds a callback function `raiseToast` which can be executed in another component to show the toast for a given duration.
 
-```jsx
+```js
 
 const [toastProps, setToastProps] = useState<RaiseToastArgs>();
 

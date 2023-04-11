@@ -3,10 +3,16 @@
 }
 
 .markdown p,
-.markdown ul,
-.markdown ol,
-.markdown blockquote {
+.markdown ul {
   @apply my-6;
+}
+
+.markdown ol {
+  @apply my-6 list-decimal list-inside;
+}
+
+.markdown code {
+  @apply text-base;
 }
 
 .markdown blockquote {

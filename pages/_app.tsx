@@ -2,14 +2,17 @@ import { AppProps } from "next/app";
 import "../styles/index.css";
 import { Be_Vietnam_Pro } from "next/font/google";
 
-const inter = Be_Vietnam_Pro({
+// Syntax highlighting
+import "prism-themes/themes/prism-one-light.css";
+
+const beVietnamPro = Be_Vietnam_Pro({
   subsets: ["latin"],
   weight: ["400", "700"],
 });
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <main className={inter.className}>
+    <main className={beVietnamPro.className}>
       <Component {...pageProps} />
     </main>
   );
