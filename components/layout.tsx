@@ -14,7 +14,7 @@ const Layout = ({ children }: Props) => {
       <Head>
         <title>{WEBSITE_TITLE}</title>
       </Head>
-      <div className="min-h-screen">
+      <div>
         <Header />
         <main>{children}</main>
       </div>
