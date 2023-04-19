@@ -9,7 +9,7 @@ const Intro = () => {
         <br />I work at{" "}
         <a
           href="https://www.mongodb.com/"
-          className="underline hover:text-blue-600 duration-200 transition-colors"
+          className="underline hover:text-blue-700 duration-200 transition-colors"
         >
           MongoDB
         </a>{" "}

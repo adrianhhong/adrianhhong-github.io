@@ -6,8 +6,9 @@ const Header = () => {
   return (
     <div className="flex justify-between mb-20 mt-8 mx-11">
       <h2 className="text-2xl md:text-4xl font-bold tracking-tight md:tracking-tighter leading-tight">
-        <Link href="/" className="hover:underline">
+        <Link href="/">
           <Image
+            className="transition ease-in-out hover:scale-125 hover:duration-150"
             src="/assets/coot.svg"
             alt="Adrian Hong Logo"
             width={45}
@@ -22,14 +23,20 @@ const Header = () => {
           target="_blank"
           className="align-middle"
         >
-          <SiLinkedin size={40} />
+          <SiLinkedin
+            className="transition ease-in-out hover:scale-125 hover:duration-150"
+            size={40}
+          />
         </a>
         <a
           href="https://github.com/adrianhhong"
           rel="noreferrer noopener"
           target="_blank"
         >
-          <SiGithub size={40} />
+          <SiGithub
+            className="transition ease-in-out hover:scale-125 hover:duration-150"
+            size={40}
+          />
         </a>
       </div>
     </div>
