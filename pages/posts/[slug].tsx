@@ -1,11 +1,11 @@
 import { useRouter } from "next/router";
 import ErrorPage from "next/error";
-import Container from "../../components/container";
-import PostBody from "../../components/post-body";
-import PostHeader from "../../components/post-header";
+import Container from "../../components/shared/container";
+import PostBody from "../../components/posts/post-body";
+import PostHeader from "../../components/posts/post-header";
 import Layout from "../../components/layout";
 import { getPostBySlug, getAllPosts } from "../../lib/api";
-import PostTitle from "../../components/post-title";
+import PostTitle from "../../components/posts/post-title";
 import markdownToHtml from "../../lib/markdownToHtml";
 import type PostType from "../../interfaces/post";
 

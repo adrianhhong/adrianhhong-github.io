@@ -1,6 +1,6 @@
-import Container from "../components/container";
-import AllStories from "../components/more-stories";
-import Intro from "../components/intro";
+import Container from "../components/shared/container";
+import AllStories from "../components/home/all-stories";
+import Intro from "../components/home/intro";
 import Layout from "../components/layout";
 import { getAllPosts } from "../lib/api";
 import Post from "../interfaces/post";

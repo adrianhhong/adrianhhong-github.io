@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Meta from "./meta";
 import { WEBSITE_TITLE } from "../lib/constants";
-import Header from "./header";
+import Header from "./shared/header";
 
 type Props = {
   children: React.ReactNode;

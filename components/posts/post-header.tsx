@@ -1,8 +1,5 @@
-import Avatar from "./avatar";
-import DateFormatter from "./date-formatter";
-import CoverImage from "./cover-image";
+import DateFormatter from "../shared/date-formatter";
 import PostTitle from "./post-title";
-import type Author from "../interfaces/author";
 
 type Props = {
   title: string;
