@@ -5,7 +5,7 @@ const Intro = () => {
         Adrian Hong
       </h1>
       <h4 className="text-center md:text-right text-lg mt-5 md:pl-8">
-        I am a front-end engineer.
+        I am a software engineer.
         <br />I work at{" "}
         <a
           href="https://www.mongodb.com/"
@@ -13,7 +13,7 @@ const Intro = () => {
         >
           MongoDB
         </a>{" "}
-        in Sydney.
+        in Sydney, AUS.
       </h4>
     </section>
   );

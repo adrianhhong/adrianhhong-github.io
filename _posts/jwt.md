@@ -1,22 +1,15 @@
 ---
-title: "React Re-renders and the Mystery of the Disappearing Pop-ups"
+title: "Exploiting JWT with the None Algorithm"
 excerpt: "Some important React lessons."
 coverImage: "/assets/blog/preview/cover.jpg"
-date: "2022-12-04T00:00:00.000Z"
+date: "2024-11-02T00:00:00.000Z"
 author:
   name: Adrian Hong
   picture: "/assets/blog/authors/joe.jpeg"
 ogImage:
   url: "/assets/blog/preview/cover.jpg"
-tags: ["Javascript"]
+tags: ["CTF", "Exploits"]
 ---
-
-> TLDR
->
-> 1. Don't create components in the render function
-> 2. All components that use Context will re-render when the Context Provider changes
-
-Today I present React Re-renders and the Mystery of the Disappearing Pop-ups. Time to channel my inner J.K. Rowling 😤
 
 I was creating a list where items can be deleted. When deleted, we are notified of that deletion through an informative toast. Strangely, when the toast closed, it was also removing any delete confirmation dialogs that were open. This was a head scratcher, how does a toast change the state of an entirely different component?
 

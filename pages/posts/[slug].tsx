@@ -28,7 +28,11 @@ export default function Post({ post, morePosts, preview }: Props) {
         ) : (
           <>
             <article className="mb-32">
-              <PostHeader title={post.title} date={post.date} />
+              <PostHeader
+                title={post.title}
+                date={post.date}
+                tags={post.tags}
+              />
               <PostBody content={post.content} />
             </article>
           </>
@@ -53,6 +57,7 @@ export async function getStaticProps({ params }: Params) {
     "content",
     "ogImage",
     "coverImage",
+    "tags",
   ]);
   const content = await markdownToHtml(post.content || "");
 
