@@ -8,38 +8,37 @@ author:
   picture: "/assets/blog/authors/joe.jpeg"
 ogImage:
   url: "/assets/blog/preview/cover.jpg"
-tags: ["CTF", "Exploits"]
+tags: ["CTF", "Exploit"]
 ---
 
-I was creating a list where items can be deleted. When deleted, we are notified of that deletion through an informative toast. Strangely, when the toast closed, it was also removing any delete confirmation dialogs that were open. This was a head scratcher, how does a toast change the state of an entirely different component?
+I recently participated in a company run CTF where we came second. Below was an interesting Web problem, which we managed to solve.
 
-Let’s look at a dumbed down version of the feature I cooked up earlier.
+# Warnet
 
-## ToastProvider
+The challenge presented you with the source code to a typical Javascript Express application allowing you to create and log in as users.
 
-Let’s delve deeper into the `ToastProvider`. `ToastProvider` holds a callback function `raiseToast` which can be executed in another component to show the toast for a given duration.
+![Warnet](/assets/posts/jwt/warnet.png)
 
-```js
+The flag is stored in a local file `/flag.txt`. Which will be read and rendered into `admin` page if we can pass the `authMiddleware`.
 
-const [toastProps, setToastProps] = useState<RaiseToastArgs>();
+```js:routes/admin.js
+import { Router } from "express";
+import fs from "node:fs";
+import authMiddleware from "../middleware/auth.js";
 
-const raiseToast = useCallback((args: RaiseToastArgs) => {
-    const mergedProps = { ...defaultArgs, ...args };
-    setToastProps(mergedProps);
-  }, []);
+const router = Router();
 
-  useEffect(() => {
-    if (toastProps?.duration) {
-      const timer = setTimeout(() => {
-        setToastProps(undefined);
-      }, toastProps.duration);
+let flag;
 
-      return () => {
-        clearTimeout(timer);
-      };
-    }
-  }, [toastProps]);
+try {
+  flag = fs.readFileSync("./flag.txt", "utf8");
+} catch (err) {
+  console.error(err, "no admin route will be loaded");
+}
 
+router.get("/admin", authMiddleware, async (req, res) => {
+  res.render("admin", { flag });
+});
+
+export default router;
 ```
-
-toastProps changes so we need to update to not show the Toast using a rerender. Rerender of toastprovider will rerender items. Items will be instantiated again.

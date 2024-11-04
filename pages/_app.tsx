@@ -1,6 +1,7 @@
 import { AppProps } from "next/app";
 import "../styles/index.css";
 import { Be_Vietnam_Pro } from "next/font/google";
+import "../styles/rehype-code-titles.css";
 
 // Syntax highlighting
 import "prism-themes/themes/prism-one-light.css";
