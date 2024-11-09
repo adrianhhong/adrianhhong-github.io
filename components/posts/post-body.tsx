@@ -1,8 +1,8 @@
 import markdownStyles from "../../styles/markdown-styles.module.css";
-import Markdown, { Components } from "react-markdown";
+import Markdown from "react-markdown";
 import Image from "next/image";
-import rehypePrismCommon from "rehype-prism-plus/common";
 import rehypeCodeTitles from "rehype-code-titles";
+import rehypePrismAll from "rehype-prism-plus/all";
 
 type Props = {
   content: string;
@@ -29,7 +29,7 @@ const PostBody = ({ content, imageSizes }: Props) => {
             }
           },
         }}
-        rehypePlugins={[rehypeCodeTitles, rehypePrismCommon as any]}
+        rehypePlugins={[rehypeCodeTitles, rehypePrismAll as any]}
       >
         {content}
       </Markdown>
