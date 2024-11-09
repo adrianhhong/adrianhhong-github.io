@@ -7,17 +7,14 @@ import Layout from "../../components/layout";
 import { getPostBySlug, getAllPosts } from "../../lib/api";
 import PostTitle from "../../components/posts/post-title";
 import type PostType from "../../interfaces/post";
-import sizeOf from "image-size";
-import { join } from "path";
 
 type Props = {
   post: PostType;
   morePosts: PostType[];
   preview?: boolean;
-  imageSizes: Record<string, { width: number; height: number }>;
 };
 
-export default function Post({ post, morePosts, preview, imageSizes }: Props) {
+export default function Post({ post, morePosts, preview }: Props) {
   const router = useRouter();
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
@@ -35,7 +32,7 @@ export default function Post({ post, morePosts, preview, imageSizes }: Props) {
                 date={post.date}
                 tags={post.tags}
               />
-              <PostBody content={post.content} imageSizes={imageSizes} />
+              <PostBody content={post.content} />
             </article>
           </>
         )}
@@ -62,26 +59,9 @@ export async function getStaticProps({ params }: Params) {
     "tags",
   ]);
 
-  const imageSizes: Props["imageSizes"] = {};
-
-  // A regular expression to iterate on all images in the post
-  const iterator = post.content.matchAll(/\!\[.*]\((.*)\)/g);
-  let match: IteratorResult<RegExpMatchArray, any>;
-  while (!(match = iterator.next()).done) {
-    const [, src] = match.value;
-    try {
-      // Images are stored in `public`
-      const { width, height } = sizeOf(join("public", src));
-      imageSizes[src] = { width, height };
-    } catch (err) {
-      console.error(`Can’t get dimensions for ${src}:`, err);
-    }
-  }
-
   return {
     props: {
       post,
-      imageSizes,
     },
   };
 }
