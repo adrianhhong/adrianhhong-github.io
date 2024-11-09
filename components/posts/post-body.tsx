@@ -11,7 +11,7 @@ type Props = {
 
 const PostBody = ({ content, imageSizes }: Props) => {
   return (
-    <div className="max-w-2xl mx-auto">
+    <div className="max-w-5xl mx-auto">
       <Markdown
         className={markdownStyles["markdown"]}
         components={{
@@ -28,6 +28,11 @@ const PostBody = ({ content, imageSizes }: Props) => {
               return <img {...props} />;
             }
           },
+          a: (props) => (
+            <a href={props.href} target="_blank" rel="noreferrer">
+              {props.children}
+            </a>
+          ),
         }}
         rehypePlugins={[rehypeCodeTitles, rehypePrismAll as any]}
       >
